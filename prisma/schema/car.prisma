@@ -1,0 +1,32 @@
+model Car {
+  id           String         @id @default(uuid())
+  sellerId     String
+
+  brand        String
+  model        String
+  year         Int
+  price        Decimal        @db.Decimal(12, 2)
+  mileage      Int
+  fuelType     FuelType
+  transmission Transmission
+  condition    CarCondition
+  description  String?
+
+  status       CarStatus      @default(AVAILABLE)
+
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  seller       User           @relation("SellerCars", fields: [sellerId], references: [id], onDelete: Cascade)
+  images       CarImage[]
+  order        Order?
+  reviews      Review[]
+  favorites    Favorite[]
+
+  @@index([sellerId])
+  @@index([status])
+  @@index([brand])
+  @@index([model])
+  @@index([year])
+  @@index([price])
+}

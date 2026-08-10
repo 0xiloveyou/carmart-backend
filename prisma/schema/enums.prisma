@@ -1,0 +1,43 @@
+enum UserRole {
+  CUSTOMER
+  SELLER
+  ADMIN
+}
+
+enum CarStatus {
+  AVAILABLE
+  PENDING
+  SOLD
+}
+
+enum FuelType {
+  PETROL
+  DIESEL
+  HYBRID
+  ELECTRIC
+  CNG
+}
+
+enum Transmission {
+  MANUAL
+  AUTOMATIC
+}
+
+enum CarCondition {
+  NEW
+  USED
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  CANCELLED
+  COMPLETED
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  REFUNDED
+}

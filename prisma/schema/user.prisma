@@ -1,0 +1,21 @@
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  password      String
+  role          UserRole @default(CUSTOMER)
+  isActive      Boolean  @default(true)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  profile       Profile?
+  cars          Car[]          @relation("SellerCars")
+  orders        Order[]        @relation("CustomerOrders")
+  sales         Order[]        @relation("SellerOrders")
+  reviews       Review[]
+  favorites     Favorite[]
+  refreshTokens RefreshToken[]
+
+  @@index([role])
+  @@index([isActive])
+}
