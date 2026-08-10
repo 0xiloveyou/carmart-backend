@@ -16,9 +16,14 @@ import { webhookRoutes } from "./modules/webhook/webhook.route";
 
 const app : Application = express()
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://carmart-frontend.vercel.app",
+];
+
 app.use(
   cors({
-    origin: config.app_url ? [config.app_url] : true,
+    origin: allowedOrigins,
     credentials: true,
   })
 );
